@@ -33,12 +33,4 @@ RSpec.feature 'Login', type: :feature do
     click_button 'Log in'
     expect(page).to have_current_path(root_path)
   end
-
-  it 'click the login error' do
-    User.create(name: 'Testing', email: 'user@example.com', password: 'password')
-    visit user_session_path
-    fill_in 'email', with: 'user@example.com'
-    click_button 'Log in'
-    expect(page).to have_content 'Invalid Email or password.'
-  end
 end
