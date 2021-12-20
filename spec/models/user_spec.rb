@@ -4,7 +4,7 @@ RSpec.describe User, type: :model do
   subject do
     User.new(name: 'Rida', email: 'example@mail.com', password: 'password')
   end
-  before {subject.save}
+  before { subject.save }
 
   it 'name should notbe nil' do
     subject.name = nil
@@ -17,8 +17,8 @@ RSpec.describe User, type: :model do
   end
 
   it 'should return role user' do
-  #  test= User.create(name: 'Rida', email: 'example@mail.com', password: 'password')
-   subject.set_role  
-  expect(subject.reload.role).to eq 'user'
+    #  test= User.create(name: 'Rida', email: 'example@mail.com', password: 'password')
+    subject.set_role
+    expect(subject.reload.role).to eq 'user'
   end
 end
