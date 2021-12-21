@@ -15,15 +15,14 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user_id = User.first.id
     if @recipe.save
-      flash[:success] = "Object successfully created"
+      flash[:success] = 'Object successfully created'
       redirect_to @recipe
     else
-      flash[:error] = "Something went wrong"
+      flash[:error] = 'Something went wrong'
       render 'new'
     end
   end
-  
-  
+
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
