@@ -17,6 +17,13 @@
   <br>
   <%= form.text_area :description, placeholder: 'Description', class:"form-control" %>
   <br>
-  <%= form.submit class: 'btn btn-dark' %>
+  <div class="form-check form-switch">
+    <%= form.check_box :public, class:"form-check-input", id:"flexSwitchCheckDefault" %>
+    <label class="form-check-label" for="flexSwitchCheckDefault">Public</label>
+  </div>
+  <br>
+  <div class="actions">
+    <%= form.submit class: 'btn btn-dark' %>
+  </div>
   <br>
 <% end %>
