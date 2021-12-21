@@ -20,7 +20,9 @@
             <%= food.price%>
         </li>
         <li>
-        <button>delete</button>
+        <button>
+        <%=link_to "Delete", food_path(food.id), method: :delete%>
+        </button>
         </li>
     <% end %>
 </ul>
