@@ -15,19 +15,15 @@ RSpec.feature 'Food Index', type: :feature do
     expect(page).to have_current_path(root_path)
   end
 
-  it 'show user name' do
+  it 'show All Food heading' do
     expect(page).to have_content 'All Foods'
   end
 
-  it 'show user name' do
+  it 'show food name' do
     expect(page).to have_content @food.name
   end
 
-  it 'show user name' do
-    expect(page).to have_content @food.measurementUnit
-  end
-
-  it 'show user name' do
+  it 'show food price' do
     expect(page).to have_content @food.price
   end
 
