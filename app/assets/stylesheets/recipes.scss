@@ -15,3 +15,24 @@
   padding: 1rem;
   border-radius: 6px;
 }
+
+.recipe-detail {
+  width: 70%;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-detail h1{
+  align-self: center;
+}
+
+.detals {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.time {
+  display: flex;
+}

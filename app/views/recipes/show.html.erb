@@ -1,2 +1,26 @@
+<div class="recipe-detail">
 <h1><%= @recipe.name %></h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<div class="detals">
+  <div class="info">
+  <div class="time">
+    <p class="fs-4">Preparation time:  </p><span class="fs-4"><%=@recipe.preparationTime%></span>
+    </div>
+    <div class="time">
+    <p class="fs-4">Cooking time:  </p><span class="fs-4"><%=@recipe.cookingTime%></span>
+    </div>
+  </div>
+  <div class="status">
+  <%= form_with(model: @recipe, url: recipes_path) do |form| %>
+    <div class="form-check form-switch">
+    <% if @recipe.public == false %>
+    <%= form.check_box :public, class:"form-check-input fs-4", id:"flexSwitchCheckDefault" %>
+    <label class="form-check-label fs-4" for="flexSwitchCheckDefault">Public</label>
+    <% else %>
+    <%= form.check_box :public, class:"form-check-input fs-4", id:"flexSwitchCheckChecked", checked: true %>
+    <label class="form-check-label fs-4" for="flexSwitchCheckChecked">Public</label>
+    <%end%>
+    </div>
+  <%end%>
+  </div>
+</div>
+</div>
