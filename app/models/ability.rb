@@ -9,7 +9,7 @@ class Ability
     else
       can :read, :all
       can :destroy, Food do |food|
-        food.user.id = user.id
+        food.user.id == user.id
       end 
     end
     #
