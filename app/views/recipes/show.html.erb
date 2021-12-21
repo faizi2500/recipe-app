@@ -1,5 +1,6 @@
 <div class="recipe-detail">
 <h1><%= @recipe.name %></h1>
+<div>
 <div class="detals">
   <div class="info">
   <div class="time">
@@ -20,7 +21,23 @@
     <label class="form-check-label fs-4" for="flexSwitchCheckChecked">Public</label>
     <%end%>
     </div>
+     <%= form.submit class: 'btn btn-dark' %>
   <%end%>
   </div>
+  </div>
+  <div>
+  <div class="descr bg-light mb-3">
+    <p class="fs-5"><%=@recipe.description%></p>
+  </div>
+  </div>
+  <div class="actions">
+    <div class="gen-shopping-list">
+      <%= link_to 'Generate shopping list', recipes_path, class: 'btn btn-outline-dark' %>
+    </div>
+    <div class="add-ingredient">
+      <%= link_to 'Add igredient', recipes_path, class: 'btn btn-outline-dark' %>
+    </div>
+  </div>
+  <hr>
 </div>
 </div>
