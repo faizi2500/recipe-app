@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddUserToFood < ActiveRecord::Migration[6.1]
   def change
     add_reference :foods, :user, null: false, foreign_key: true
