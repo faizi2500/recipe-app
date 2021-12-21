@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[index] 
   resources :foods, only: [:index, :new, :create, :destroy]
   resources :recipes, only: [:index, :show, :new, :create, :destroy]
+  resources :inventories
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
 

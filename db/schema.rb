@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2021_12_20_161326) do
 
   # These are extensions that must be enabled in order to support this database
@@ -25,12 +26,13 @@ ActiveRecord::Schema.define(version: 2021_12_20_161326) do
     t.index ["user_id"], name: "index_foods_on_user_id"
   end
 
-  create_table "inventories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
-    t.index ["user_id"], name: "index_inventories_on_user_id"
+  create_table 'inventories', force: :cascade do |t|
+    t.string 'name'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.bigint 'user_id', null: false
+    t.string 'description'
+    t.index ['user_id'], name: 'index_inventories_on_user_id'
   end
 
   create_table "inventory_foods", force: :cascade do |t|
