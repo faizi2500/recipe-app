@@ -1,0 +1,24 @@
+<h1> All Foods</h1>
+<button>Add Food</button>
+<ul>
+<li>Foods</li>
+<li>Measurement Unit</li>
+<li>Unit Price</li>
+<li>Action</li>
+</ul>
+<ul>
+    <% @foods.each do |food|%>
+        <li>
+            <%= food.name%>
+        </li>
+        <li>
+            <%= food.measurementUnit%>
+        </li>
+        <li>
+            <%= food.price%>
+        </li>
+        <li>
+        <button>delete</button>
+        </li>
+    <% end %>
+</ul>
