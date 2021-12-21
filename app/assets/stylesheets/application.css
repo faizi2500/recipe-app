@@ -25,3 +25,14 @@
   align-items: center;
   justify-content: center;
 }
+
+.listDiv {
+  margin: 20px 10%;
+}
+
+.btn-div {
+  display: flex;
+  float: right;
+  justify-content: flex-end;
+  margin: 10px 10%;
+}
