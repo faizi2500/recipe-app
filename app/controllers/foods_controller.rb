@@ -1,6 +1,6 @@
 class FoodsController < ApplicationController
   def index
-    @foods = current_user.foods
+    @foods = Food.all.where(user_id: current_user.id)
   end
 
   def new
@@ -16,6 +16,9 @@ class FoodsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
   end
 
   private
