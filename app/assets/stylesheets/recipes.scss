@@ -2,10 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.recipes {
+  width: 70%;
+  margin: 1rem auto;
+}
+
 .recipe {
   display: flex;
   border: 2px solid black;
-  width: 70%;
   margin: 1rem auto;
   justify-content: space-between;
+  padding: 1rem;
+  border-radius: 6px;
 }
