@@ -47,7 +47,7 @@
 
 
 <table class="table table-striped table-bordered">
- 
+ <% if @recipe.recipe_foods.any? %>
     <thead>
         <tr>
         <th>Food</th>
@@ -64,14 +64,15 @@
       <td><%= fd.quantity%></td>
       <td><%= fd.quantity* fd.food.price %></td>
       <td class="mb-3 col-sm-2">
-      
-        <%=link_to "Delete"%>
-      
+      <% if can? :destroy, @recipe %>
+        <%=link_to "Delete", recipe_recipe_food_path(recipe_id: @recipe.id, id: fd.id), method: :delete, class:"btn btn-primary form-control"%>
+      <%end%>
       </td>
     </tr>
   
     </tbody>
     <%end%>
+  <%end%>
 </table>
 
 

@@ -1,6 +1,6 @@
 <h2 class="heading">Add Food</h2>
 <div>
-<%= form_with  url: recipe_recipe_foods_path(params[:recipe_id]), class:"input-form"  do |f|%>
+<%= form_with  model: [@recipe, @recipe.recipe_foods.create], class:"input-form"  do |f|%>
     <div class="form-div" >
 
     <div class="mb-3 col-sm-8">
