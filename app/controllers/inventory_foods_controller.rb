@@ -6,7 +6,8 @@ class InventoryFoodsController < ApplicationController
   def new; end
 
   def create
-    @addfood = InventoryFood.new(quantity: params[:quantity], food_id: params[:food], inventory_id: params[:inventory_id])
+    @addfood = InventoryFood.new(quantity: params[:quantity], food_id: params[:food],
+                                 inventory_id: params[:inventory_id])
     new_status = true
     InventoryFood.all.each do |each|
       new_status = false if each.inventory_id == @addfood.inventory_id && each.food_id == @addfood.food_id
