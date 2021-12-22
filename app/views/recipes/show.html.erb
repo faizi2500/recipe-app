@@ -1,3 +1,4 @@
+<% if can? :read , @recipe %>
 <div class="recipe-detail">
 <h1><%= @recipe.name %></h1>
 <div>
@@ -10,20 +11,21 @@
     <p class="fs-4">Cooking time:  </p><span class="fs-4"><%=@recipe.cookingTime%></span>
     </div>
   </div>
-  <div class="status">
-  <%= form_with(model: @recipe, url: recipes_path) do |form| %>
-    <div class="form-check form-switch">
-    <% if @recipe.public == false %>
-    <%= form.check_box :public, class:"form-check-input fs-4", id:"flexSwitchCheckDefault" %>
-    <label class="form-check-label fs-4" for="flexSwitchCheckDefault">Public</label>
-    <% else %>
-    <%= form.check_box :public, class:"form-check-input fs-4", id:"flexSwitchCheckChecked", checked: true %>
-    <label class="form-check-label fs-4" for="flexSwitchCheckChecked">Public</label>
-    <%end%>
+  <% if can? :update, @recipe%>
+    <div class="status">
+      <%= form_with url: update_path(@recipe), method: "put" do |form| %>
+        <div class="form-check form-switch">
+          <% if @recipe.public == false %>
+            <%= form.check_box :public, class:"form-check-input fs-4", id:"flexSwitchCheckDefault", onchange: "this.form.submit();"%>
+            <label class="form-check-label fs-4" for="flexSwitchCheckDefault">Public</label>
+          <% else %>
+            <%= form.check_box :public, class:"form-check-input fs-4", id:"flexSwitchCheckChecked", checked: true, onchange: "this.form.submit();" %>
+            <label class="form-check-label fs-4" for="flexSwitchCheckChecked">Public</label>
+          <%end%>
+        </div>
+      <%end%>
     </div>
-     <%= form.submit class: 'btn btn-dark' %>
   <%end%>
-  </div>
   </div>
   <div>
   <div class="descr bg-light mb-3">
@@ -34,10 +36,14 @@
     <div class="gen-shopping-list">
       <%= link_to 'Generate shopping list', recipes_path, class: 'btn btn-outline-dark' %>
     </div>
+    <% if can? :update, @recipe%>
     <div class="add-ingredient">
       <%= link_to 'Add igredient', recipes_path, class: 'btn btn-outline-dark' %>
     </div>
+    <%end%>
   </div>
   <hr>
 </div>
+<!-- Ingredients' table-->
 </div>
+<%end%>
