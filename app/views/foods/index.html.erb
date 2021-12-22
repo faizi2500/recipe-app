@@ -22,9 +22,9 @@
       <td><%= food.measurementUnit%></td>
       <td>$<%= food.price%></td>
       <td class="mb-3 col-sm-2">
-      
+      <%if can? :destroy, food%>
         <%=link_to "Delete", food_path(food.id), method: :delete, class:"btn btn-primary form-control"%>
-      
+      <%end%>
       </td>
     </tr>
     <% end %>
