@@ -7,12 +7,20 @@ class Ability
     if user.role == 'admin'
       can :manage, :all
     else
-      can :destroy, Recipe do |post|
-        post.author == user
+      can :destroy, Recipe do |recipe|
+        recipe.user == user
       end
-      
 
-      can %i[read create], :all
+      can :read, Recipe do |recipe|
+        recipe.user == user || recipe.public
+      end
+
+      can :update, Recipe do |recipe|
+        recipe.user == user
+      end
+
+
+      can %i[create], :all
     end
     #
     # The first argument to `can` is the action you are giving the user

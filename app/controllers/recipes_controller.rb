@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.where(user_id: current_user.id)
   end
 
   def show
@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.user_id = User.first.id
+    @recipe.user_id = current_user.id
     if @recipe.save
       flash[:success] = 'Object successfully created'
       redirect_to @recipe
