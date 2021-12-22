@@ -34,5 +34,4 @@ RSpec.feature 'Inventory Food Index', type: :feature do
     click_on('Add Food')
     expect(page).to have_button('Close')
   end
-
 end

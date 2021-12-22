@@ -5,11 +5,11 @@ RSpec.describe Inventory, type: :model do
   inventory = Inventory.new(name: 'kitchen', description: 'pizza', user_id: user.id)
 
   before(:each) do
-  inventory.save
+    inventory.save
   end
 
   it 'nil title should be invalid' do
-  inventory.name = nil
+    inventory.name = nil
     expect(inventory).to_not be_valid
   end
 
@@ -17,5 +17,4 @@ RSpec.describe Inventory, type: :model do
     inventory.description = nil
     expect(inventory).to_not be_valid
   end
-
 end

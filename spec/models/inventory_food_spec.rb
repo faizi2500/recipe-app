@@ -6,14 +6,13 @@ RSpec.describe InventoryFood, type: :model do
   food = Food.new(name: 'apple', measurementUnit: 'kg', price: 25, user_id: user.id)
 
   before(:each) do
-  inventory.save
-  food.save
-  @inventory_food = InventoryFood.create(quantity: 15, inventory_id: inventory.id, food_id: food.id)
+    inventory.save
+    food.save
+    @inventory_food = InventoryFood.create(quantity: 15, inventory_id: inventory.id, food_id: food.id)
   end
 
   it 'nil title should be invalid' do
-  @inventory_food.quantity = nil
+    @inventory_food.quantity = nil
     expect(@inventory_food).to_not be_valid
   end
-
 end

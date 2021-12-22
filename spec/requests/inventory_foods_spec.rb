@@ -30,6 +30,5 @@ RSpec.describe 'InventoryFoods', type: :request do
     it 'check for placeholder text' do
       expect(response.body).to include('Inventory')
     end
-
   end
 end

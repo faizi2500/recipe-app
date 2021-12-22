@@ -34,7 +34,6 @@ RSpec.feature 'Inventory Index', type: :feature do
 
   it 'form inputs' do
     click_on('Create New')
-    expect(page).to have_button("Close")
+    expect(page).to have_button('Close')
   end
-
 end
