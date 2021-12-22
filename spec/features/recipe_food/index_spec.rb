@@ -4,7 +4,8 @@ RSpec.feature 'RecipeFood Index', type: :feature do
   before(:each) do
     @user = User.create(name: 'Testing', email: 'user@example.com', password: 'password')
     @food = Food.create(name: 'apple', measurementUnit: 'kg', price: 10, user: @user)
-    @recipe = Recipe.create(name: 'Pizza', cookingTime: 1, preparationTime:2, description: 'hgghghghghh', public: false,user: @user )
+    @recipe = Recipe.create(name: 'Pizza', cookingTime: 1, preparationTime: 2, description: 'hgghgh', public: false,
+                            user: @user)
     visit user_session_path
     fill_in 'email', with: 'user@example.com'
     fill_in 'pwd', with: 'password'
@@ -14,10 +15,7 @@ RSpec.feature 'RecipeFood Index', type: :feature do
     click_link('Add igredient')
   end
 
-
-
   it 'check the recipe_food path' do
-   
     expect(page).to have_current_path(new_recipe_recipe_food_path(@recipe.id))
   end
 
@@ -32,5 +30,4 @@ RSpec.feature 'RecipeFood Index', type: :feature do
   it 'check the input elements' do
     expect(page).to have_content('apple')
   end
-  
 end
