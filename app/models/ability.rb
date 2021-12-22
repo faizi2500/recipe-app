@@ -8,6 +8,9 @@ class Ability
       can :manage, :all
     else
       can :read, :all
+      can :destroy, Food do |food|
+        food.user.id == user.id
+      end
     end
     #
     # The first argument to `can` is the action you are giving the user
