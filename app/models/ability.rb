@@ -15,7 +15,7 @@ class Ability
         recipe.user == user || recipe.public
       end
       
-      can :read Food
+      can :read, Food
       can :destroy, Food do |food|
         food.user.id == user.id
       end
