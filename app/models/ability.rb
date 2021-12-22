@@ -19,7 +19,6 @@ class Ability
         recipe.user == user
       end
 
-
       can %i[create], :all
     end
     #
