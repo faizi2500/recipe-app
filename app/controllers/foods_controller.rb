@@ -1,6 +1,6 @@
 class FoodsController < ApplicationController
   def index
-    @foods = Food.all.where(user_id: current_user.id)
+    @foods = Food.all
   end
 
   def new
@@ -16,6 +16,14 @@ class FoodsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @food = Food.find(params[:id])
+    authorize! :destroy, @food
+    @food.destroy
+    flash[:success] = 'Food is removed successfully'
+    redirect_to root_path
   end
 
   private
