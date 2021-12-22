@@ -18,6 +18,10 @@ RSpec.feature 'Inventory Food Index', type: :feature do
     expect(page).to have_current_path inventory_inventory_foods_path(@inventory.id)
   end
 
+  it 'check status' do
+    expect(page).to have_http_status(:ok)
+  end
+
   it 'show heading' do
     expect(page).to have_content(@inventory.name)
   end
