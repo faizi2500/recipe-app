@@ -13,17 +13,16 @@
   </div>
   <% if can? :update, @recipe%>
     <div class="status">
-      <%= form_with(model: @recipe, url: recipes_path) do |form| %>
+      <%= form_with url: update_path(@recipe), method: "put" do |form| %>
         <div class="form-check form-switch">
           <% if @recipe.public == false %>
-            <%= form.check_box :public, class:"form-check-input fs-4", id:"flexSwitchCheckDefault"%>
+            <%= form.check_box :public, class:"form-check-input fs-4", id:"flexSwitchCheckDefault", onchange: "this.form.submit();"%>
             <label class="form-check-label fs-4" for="flexSwitchCheckDefault">Public</label>
           <% else %>
-            <%= form.check_box :public, class:"form-check-input fs-4", id:"flexSwitchCheckChecked", checked: true %>
+            <%= form.check_box :public, class:"form-check-input fs-4", id:"flexSwitchCheckChecked", checked: true, onchange: "this.form.submit();" %>
             <label class="form-check-label fs-4" for="flexSwitchCheckChecked">Public</label>
           <%end%>
         </div>
-        <%= form.submit style: "display: none;" %>
       <%end%>
     </div>
   <%end%>

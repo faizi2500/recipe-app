@@ -23,6 +23,16 @@ class RecipesController < ApplicationController
     end
   end
 
+  def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(public: params[:public])
+      flash[:success] = 'Object was successfully updated'
+    else
+      flash[:error] = 'Something went wrong'
+    end
+    redirect_to recipe_path(@recipe)
+  end
+
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
