@@ -38,7 +38,7 @@
     </div>
     <% if can? :update, @recipe%>
     <div class="add-ingredient">
-      <%= link_to 'Add igredient', recipes_path, class: 'btn btn-outline-dark' %>
+      <%= link_to 'Add igredient', new_recipe_recipe_food_path(@recipe), class: 'btn btn-outline-dark' %>
     </div>
     <%end%>
   </div>
@@ -46,4 +46,5 @@
 </div>
 <!-- Ingredients' table-->
 </div>
+
 <%end%>
