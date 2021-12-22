@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+# rubocop: disable Metrics/BlockLength
 RSpec.feature 'Inventory Food Index', type: :feature do
   before(:each) do
     @user = User.create(name: 'Testing', email: 'user@example.com', password: 'password')
@@ -39,3 +39,4 @@ RSpec.feature 'Inventory Food Index', type: :feature do
     expect(page).to have_button('Close')
   end
 end
+# rubocop: enable Metrics/BlockLength
