@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  add_flash_types :succes, :error, :warning, :message
   protect_from_forgery prepend: true
 
   before_action :configure_permitted_parameters, if: :devise_controller?
