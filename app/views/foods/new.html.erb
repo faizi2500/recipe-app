@@ -6,17 +6,17 @@
 
     <div class="mb-3 col-sm-8">
     <%= f.label :name, class:"form-label" %><br>
-    <%= f.text_field :name, class:"form-control",  required: true%><br>
+    <%= f.text_field :name, class:"form-control",  required: true, id:"name"%><br>
     </div>
 
     <div class="mb-3 col-sm-8">
     <%= f.label :measurementUnit, class:"form-label" %><br>
-    <%= f.text_area :measurementUnit,  class:"form-control" , required: true%><br>
+    <%= f.text_field :measurementUnit,  class:"form-control" , required: true, id:"measurement"%><br>
     </div>
 
     <div class="mb-3 col-sm-8">
     <%= f.label :price, class:"form-label" %><br>
-    <%= f.text_area :price ,  class:"form-control" , required: true%><br>
+    <%= f.text_field :price ,  class:"form-control" , required: true, id:"price"%><br>
     </div>
 
     <div class="mb-3 col-sm-2">
