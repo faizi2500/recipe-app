@@ -14,12 +14,12 @@ class Ability
       can :read, Recipe do |recipe|
         recipe.user == user || recipe.public
       end
-      
+
       can :read, Food
       can :destroy, Food do |food|
         food.user.id == user.id
       end
-      
+
       can %i[create], :all
     end
     #
