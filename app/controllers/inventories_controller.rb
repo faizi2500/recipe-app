@@ -5,7 +5,6 @@ class InventoriesController < ApplicationController
 
   def new; end
 
-
   def destroy
     @inventory = Inventory.find(params[:id])
     @inventory.destroy

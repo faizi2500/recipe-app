@@ -2,7 +2,7 @@ class InventoryFoodsController < ApplicationController
   def index
     @current_inventory = Inventory.find(params[:inventory_id])
     @food_list = Food.where(user_id: current_user.id)
-    @inventory_food_list = InventoryFood.where(inventory_id: params[:inventory_id]) 
+    @inventory_food_list = InventoryFood.where(inventory_id: params[:inventory_id])
   end
 
   def new; end
@@ -23,7 +23,7 @@ class InventoryFoodsController < ApplicationController
       flash[:error] = 'Food could not be created'
     end
     @food_list = Food.where(user_id: current_user.id)
-    @inventory_food_list = InventoryFood.where(inventory_id: params[:inventory_id]) 
+    @inventory_food_list = InventoryFood.where(inventory_id: params[:inventory_id])
     redirect_to inventory_inventory_foods_path(@addfood.inventory_id)
   end
 
