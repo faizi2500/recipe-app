@@ -4,5 +4,5 @@
   <p class="fs-1">Inventory: <%= Inventory.find(params[:inventory_id]).name.capitalize %></p>
   <%= render 'button' %>
 </div>
-<%= render partial: 'table', locals: { inventorylist: InventoryFood.all }%>
+<%= render partial: 'table', locals: { inventorylist: InventoryFood.where(inventory_id: params[:inventory_id]) }%>
 </div>

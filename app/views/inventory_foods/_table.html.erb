@@ -11,7 +11,11 @@
     <tr>
       <td><%= Food.find(list.food_id).name %></td>
       <td><%= list.quantity %> <%= Food.find(list.food_id).measurementUnit %></td>
-      <td><%= link_to 'Remove', inventory_inventory_food_path(list.inventory_id, list.id), method: :delete, class: "align-text-bottom btn btn-secondary" %></td>
+      <td>
+      <% if check_owner(params[:inventory_id]) %>
+        <%= link_to 'Remove', inventory_inventory_food_path(list.inventory_id, list.id), method: :delete, class: "align-text-bottom btn btn-secondary" %>
+      <% end %>
+      </td>
     </tr>
     <% end %>
   </tbody>

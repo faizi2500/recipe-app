@@ -1,6 +1,8 @@
+<% if check_owner(params[:inventory_id]) %> 
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     Add Food
 </button>
+<% end %>
 
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -12,7 +14,7 @@
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body d-flex align-items-center justify-content-around">
-      <h5 class="modal-title" id="staticBackdropLabel"><%= form.select :food, Food.all.collect {|u| [ u.name, u.id ] }%></h5>
+      <h5 class="modal-title" id="staticBackdropLabel"><%= form.select :food, Food.where(user_id: current_user.id).collect {|u| [ u.name, u.id ] }%></h5>
       <div>  
         <%= form.label :quantity %>
         <%= form.text_field :quantity, placeholder: '0.00' %>
