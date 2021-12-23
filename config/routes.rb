@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'users/index'
   resources :users, only: %i[index]
   resources :foods, only: %i[index new create destroy]
-  resources :recipes, only: %i[index show new create destroy]
+  resources :recipes, only: [:index, :show, :new, :create, :destroy] do
+    resources :recipe_foods, only: [:new, :create, :destroy]
+  end
   resources :inventories do
     resources :inventory_foods
   end
