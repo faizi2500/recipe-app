@@ -25,5 +25,3 @@ class InventoriesController < ApplicationController
     params.require(:inventory).permit(:name, :description, :user_id)
   end
 end
-
-# <p class = ""><%= link_to 'Create New', new_inventory_path, class: "btn btn-primary btn-lg" %>
