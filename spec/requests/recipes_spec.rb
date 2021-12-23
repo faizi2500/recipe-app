@@ -24,4 +24,24 @@ RSpec.describe 'Recipes', type: :request do
       expect(response.body).to include('Add recipe')
     end
   end
+
+  
+  describe 'GET /new' do
+    before do
+      sign_in user
+      get new_recipe_path
+    end
+
+    it 'should return response status correct (ok)' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'respons to html' do
+      expect(response.content_type).to include 'text/html'
+    end
+
+    it 'should include correct placeholder' do
+      expect(response.body).to include('Cooking time')
+    end
+  end
 end
