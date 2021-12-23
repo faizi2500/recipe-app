@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Recipe Index', type: :feature do
+RSpec.feature 'Recipe Show', type: :feature do
   before(:each) do
     @user = User.create(name: 'Testing', email: 'user@example.com', password: 'password')
     @recipe = Recipe.create(user: @user, name: 'Wonderful cake', cookingTime: 5.5, preparationTime: 12.6,
@@ -9,7 +9,7 @@ RSpec.feature 'Recipe Index', type: :feature do
     fill_in 'email', with: 'user@example.com'
     fill_in 'pwd', with: 'password'
     click_button 'Log in'
-    visit recipes_path
+    visit recipe_path(@recipe)
   end
 
   it 'user can see inputs and button' do
@@ -17,24 +17,19 @@ RSpec.feature 'Recipe Index', type: :feature do
     expect(page).to have_current_path(root_path)
   end
 
-  it 'show the button of adding a recipe' do
-    expect(page).to have_content 'Add recipe'
+  it 'shows the button of adding ingredients to the recipe' do
+    expect(page).to have_content 'Add igredient'
   end
 
-  it 'show recipe name' do
+  it 'shows recipe name' do
     expect(page).to have_content @recipe.name
   end
 
-  it 'show recipe description' do
+  it 'shows recipe description' do
     expect(page).to have_content @recipe.description
   end
 
-  it 'check the delete butto' do
-    expect(page).to have_content 'Remove'
-  end
-
-  it 'Navigate to the recipe page' do
-    find_link("recipe_#{@recipe.id}").click
-    expect(page).to have_current_path(recipe_path(@recipe))
+  it 'shows generate shopping list button' do
+    expect(page).to have_content 'Generate Shopping List'
   end
 end

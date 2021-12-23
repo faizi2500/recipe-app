@@ -4,7 +4,10 @@ RSpec.describe 'Recipes', type: :request do
   include Devise::Test::IntegrationHelpers
 
   let(:user) { User.create(name: 'Amine', email: 'amine@mail.com', password: 'password') }
-  let(:recipe) { user.recipes.create(user_id: user.id, name: 'Wonderful cake', cookingTime: 5.5, preparationTime: 12.6, description: "Test the wondrful cake", public: true) }
+  let(:recipe) do
+    user.recipes.create(user_id: user.id, name: 'Wonderful cake', cookingTime: 5.5, preparationTime: 12.6,
+                        description: 'Test the wondrful cake', public: true)
+  end
 
   describe 'GET /index' do
     before do
@@ -25,7 +28,6 @@ RSpec.describe 'Recipes', type: :request do
     end
   end
 
-  
   describe 'GET /new' do
     before do
       sign_in user

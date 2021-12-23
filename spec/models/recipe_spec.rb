@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
   let(:user) { User.create(name: 'Rida', email: 'example@mail.com', password: 'password') }
-  let(:recipe) { Recipe.create(user_id: user.id, name: 'Wonderful cake', cookingTime: 5.5, preparationTime: 12.6, description: "Test the wondrful cake", public: true) }
+  let(:recipe) do
+    Recipe.create(user_id: user.id, name: 'Wonderful cake', cookingTime: 5.5, preparationTime: 12.6,
+                  description: 'Test the wondrful cake', public: true)
+  end
 
   describe 'Validations' do
     context 'when valid' do
@@ -40,12 +43,12 @@ RSpec.describe Recipe, type: :model do
     end
 
     it 'should validate the description' do
-      recipe.description = "test"*12
+      recipe.description = 'test' * 12
       expect(recipe).to be_valid
     end
 
     it 'should validate the description' do
-      recipe.description = "test"*260
+      recipe.description = 'test' * 260
       expect(recipe).to_not be_valid
     end
 

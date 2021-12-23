@@ -9,13 +9,13 @@
       </ul>
     </div>
   <% end %>
-  <%= form.text_field :name, placeholder: 'Name', class:"form-control" %>
+  <%= form.text_field :name, placeholder: 'Name', id:"name", class:"form-control" %>
   <br>
-  <%= form.text_field :cookingTime, placeholder: 'Cooking time', class:"form-control" %>
+  <%= form.text_field :cookingTime, placeholder: 'Cooking time', id:"cookingTime", class:"form-control" %>
   <br>
-  <%= form.text_field :preparationTime, placeholder: 'Preparation time', class:"form-control" %>
+  <%= form.text_field :preparationTime, placeholder: 'Preparation time', id:"preparationTime",class:"form-control" %>
   <br>
-  <%= form.text_area :description, placeholder: 'Description', class:"form-control" %>
+  <%= form.text_area :description, placeholder: 'Description', id:"description", class:"form-control" %>
   <br>
   <div class="form-check form-switch">
     <%= form.check_box :public, class:"form-check-input", id:"flexSwitchCheckDefault" %>
