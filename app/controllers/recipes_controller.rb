@@ -44,6 +44,9 @@ class RecipesController < ApplicationController
     @recipes = Recipe.where(public: true)
   end
 
+  def generate
+  end
+
   private
 
   def recipe_params

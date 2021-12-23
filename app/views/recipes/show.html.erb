@@ -34,7 +34,7 @@
   </div>
   <div class="actions">
     <div class="gen-shopping-list">
-      <%= link_to 'Generate shopping list', recipes_path, class: 'btn btn-outline-dark' %>
+      <%= link_to 'Generate shopping list', shopping_list_path(@recipe.id, 1), class: 'btn btn-outline-dark' %>
     </div>
     <% if can? :update, @recipe%>
     <div class="add-ingredient">

@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   end
   put 'recipes/:id/update', to: 'recipes#update', as: 'update'
   get 'public_recipes', to: 'recipes#public', as: 'public'
+  get 'shopping_list/recipe_id=:recipe_id&inventory_id=:inventory_id', to: 'recipes#generate', as: "shopping_list"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
