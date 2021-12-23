@@ -25,10 +25,6 @@ RSpec.feature 'Inventory Food Index', type: :feature do
     expect(page).to have_content(@inventory.name)
   end
 
-  it 'table name' do
-    expect(page).to have_content 'Food'
-  end
-
   it 'show inventory food list' do
     expect(page).to have_content @food.name
   end
