@@ -49,6 +49,8 @@ class RecipesController < ApplicationController
     redirect_to shopping_list_path(params[:recipe_id], params[:inventory])
   end
 
+  # rubocop:disable Metrics/MethodLength
+
   def generate
     @quantity = []
     @foods = []
@@ -78,6 +80,7 @@ class RecipesController < ApplicationController
       @total += q[0] * q[1]
     end
   end
+  # rubocop:enable Metrics/MethodLength
 
   private
 
