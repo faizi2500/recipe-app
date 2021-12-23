@@ -1,4 +1,4 @@
-<% Inventory.where(user_id: current_user.id).each do |inventory| %>
+<% @inventories.each do |inventory| %>
   <div class=" card mb-3 mt-3">
   <div class="row g-0">
     <div class="col-md-4 d-flex flex-column align-items-center justify-content-around">
