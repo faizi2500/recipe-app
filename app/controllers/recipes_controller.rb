@@ -16,10 +16,10 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user_id = current_user.id
     if @recipe.save
-      flash[:success] = 'Object successfully created'
+      flash[:notice] = 'Recipe successfully created'
       redirect_to @recipe
     else
-      flash[:error] = 'Something went wrong'
+      flash[:notice] = 'Something went wrong'
       render 'new'
     end
   end
@@ -27,7 +27,7 @@ class RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     if @recipe.update(public: params[:public])
-      flash[:success] = 'Object was successfully updated'
+      flash[:success] = 'Recipe was successfully updated'
     else
       flash[:error] = 'Something went wrong'
     end
@@ -37,7 +37,7 @@ class RecipesController < ApplicationController
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    flash[:notice] = 'The Post was successfully destroyed.'
+    flash[:notice] = 'The recipe was successfully destroyed.'
     redirect_to recipes_url
   end
 

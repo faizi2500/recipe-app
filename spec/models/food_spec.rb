@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Food, type: :model do
   let(:user) { User.create(name: 'Rida', email: 'example@mail.com', password: 'password') }
-  let(:food) { Food.create(user: user, name: 'Apple', measurementUnit: 'kg', price: 12) }
+  let(:food) { Food.create(user_id: user.id, name: 'Apple', measurementUnit: 'kg', price: 12) }
 
   describe 'Validations' do
     context 'when valid' do
@@ -15,7 +15,7 @@ RSpec.describe Food, type: :model do
     end
 
     it 'should allow valid name' do
-      food.name = 'Egg'
+      food.name = 'Apple'
       expect(food).to be_valid
     end
 
