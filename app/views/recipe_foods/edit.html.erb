@@ -1,6 +1,6 @@
-<h2 class="heading">Add Recipe Food</h2>
+<h2 class="heading">Edit Recipe Food</h2>
 <div>
-<%= form_with  model: [@recipe, @recipe.recipe_foods.create], class:"input-form"  do |f|%>
+<%= form_with  model: @recipe_food, url: { action: "update"}, local: true, class:"input-form"  do |f|%>
     <div class="form-div" >
 
     <div class="mb-3 col-sm-8">
@@ -14,7 +14,7 @@
     </div>
 
     <div class="mb-3 col-sm-2">
-    <%= f.submit "Create Recipe_Food", class:"btn btn-primary form-control" %>
+    <%= f.submit "Update Recipe_Food", class:"btn btn-primary form-control" %>
     </div>
     </div>
 <%end%>
