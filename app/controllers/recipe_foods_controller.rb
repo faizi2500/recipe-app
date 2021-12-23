@@ -29,7 +29,7 @@ class RecipeFoodsController < ApplicationController
     end
     redirect_to recipe_path(@recipe_food.recipe_id)
   end
-  
+
   def destroy
     @recipe_food = RecipeFood.find(params[:id])
     # authorize! :destroy, @recipe_food
