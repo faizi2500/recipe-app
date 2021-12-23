@@ -50,6 +50,11 @@ class RecipesController < ApplicationController
   end
 
   def generate
+    @recipe = Recipe.find_by(id: params[:recipe_id])
+    @inventory = Inventory.find_by(id: params[:inventory_id])
+    @foods = []
+    @foods << RecipeFood.where(recipe_id: params[:recipe_id])
+    @foods << InventoryFood.where(inventory_id: params[:inventory_id])
   end
 
   private

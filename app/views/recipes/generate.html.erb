@@ -1,2 +1,23 @@
-<h1>Shopping list</h1>
-<%= params %>
+<h1 class="heading"> Shopping List</h1>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+        <th >Food</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    <% @foods.each do |food|%>
+    <tr>
+      <td><%= food[0].food_id%></th>
+      <td><%= food[1] %></td>
+      <td>$<%= food[0]%></td>
+    </tr>
+    <% end %>
+    </tbody>
+</table>
+
+</div>

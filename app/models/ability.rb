@@ -7,16 +7,12 @@ class Ability
     if user.role == 'admin'
       can :manage, :all
     else
-      can :update, Recipe do |recipe|
-        recipe.user == user
-      end
-
-      can :destroy, Recipe do |recipe|
-        recipe.user == user
-      end
-
       can :read, Recipe do |recipe|
         recipe.user == user || recipe.public
+      end
+
+      can [:update, :destroy], Recipe do |recipe|
+        recipe.user == user
       end
 
       can :read, Food
