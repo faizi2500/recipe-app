@@ -35,7 +35,7 @@
   <div class="actions">
     <%= render 'generatepopup' %>
     <% if can? :update, @recipe%>
-    <div class="add-ingredient">
+     <div class="add-ingredient">
       <%= link_to 'Add igredient', new_recipe_recipe_food_path(@recipe), class: 'btn btn-outline-dark' %>
     </div>
     <%end%>
@@ -61,9 +61,11 @@
       <td><%= fd.food.name%></th>
       <td><%= fd.quantity%></td>
       <td><%= fd.quantity* fd.food.price %></td>
-      <td class="mb-3 col-sm-2">
+      <td class="mb-3 col-sm-3">
       <% if can? :destroy, @recipe %>
-        <%=link_to "Delete", recipe_recipe_food_path(recipe_id: @recipe.id, id: fd.id), method: :delete, class:"btn btn-primary form-control"%>
+  
+        <%=link_to "Delete", recipe_recipe_food_path(recipe_id: @recipe.id, id: fd.id), method: :delete, class:"btn btn-outline-dark"%>
+        <%=link_to "Modify", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id: fd.id), class:"btn btn-outline-dark"%>
       <%end%>
       </td>
     </tr>

@@ -6,17 +6,17 @@
 
     <div class="mb-3 col-sm-8">
     <%= f.label :name, class:"form-label" %><br>
-    <%= f.text_field :name, class:"form-control",  required: true, id:"name"%><br>
+    <%= f.text_field :name, class:"form-control",  required: true, id:"name", placeholder: 'Bananas'%><br>
     </div>
 
     <div class="mb-3 col-sm-8">
     <%= f.label :measurementUnit, class:"form-label" %><br>
-    <%= f.text_field :measurementUnit,  class:"form-control" , required: true, id:"measurement"%><br>
+    <%= f.text_field :measurementUnit,  class:"form-control" , required: true, id:"measurement",  placeholder: 'kg, grams, etc'%><br>
     </div>
 
     <div class="mb-3 col-sm-8">
     <%= f.label :price, class:"form-label" %><br>
-    <%= f.text_field :price ,  class:"form-control" , required: true, id:"price"%><br>
+    <%= f.number_field :price ,  class:"form-control" , required: true, id:"price", placeholder: '1',step: :any%><br>
     </div>
 
     <div class="mb-3 col-sm-2">
