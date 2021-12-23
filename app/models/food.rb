@@ -1,5 +1,6 @@
 class Food < ApplicationRecord
   belongs_to :user
+  has_many :inventoryfoods
 
   validates :name, presence: true, length: { minimum: 3 }
   validates :measurementUnit, presence: true
