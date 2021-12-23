@@ -5,12 +5,12 @@
 
     <div class="mb-3 col-sm-8">
     <%= f.label :food, class:"form-label" %><br>
-    <%= f.select :food_id, current_user.foods.collect {|food| [food.name, food.id]},{ include_blank: true} ,class:"form-control" %><br>
+    <%= f.select :food_id, current_user.foods.collect {|food| [food.name, food.id]},{ include_blank: true} , class:"form-select" %><br>
     </div>
 
     <div class="mb-3 col-sm-8">
     <%= f.label :quantity, class:"form-label" %><br>
-    <%= f.text_field :quantity ,  class:"form-control" , required: true%><br>
+    <%= f.number_field :quantity ,  class:"form-control" , required: true, min:1%><br>
     </div>
 
     <div class="mb-3 col-sm-2">
