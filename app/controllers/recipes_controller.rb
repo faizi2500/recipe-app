@@ -5,6 +5,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.where(id: params[:id]).includes(:recipe_foods).take
+    @inventories = Inventory.all
   end
 
   def new
@@ -42,6 +43,10 @@ class RecipesController < ApplicationController
 
   def public
     @recipes = Recipe.where(public: true)
+  end
+
+  def generate_list 
+    redirect_to shopping_list_path(params[:recipe_id], params[:inventory])
   end
 
   def generate
