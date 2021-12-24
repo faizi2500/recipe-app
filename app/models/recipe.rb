@@ -5,5 +5,5 @@ class Recipe < ApplicationRecord
   validates :public, inclusion: { in: [true, false] }
 
   belongs_to :user
-  has_many :recipe_foods
+  has_many :recipe_foods, dependent: :destroy
 end
