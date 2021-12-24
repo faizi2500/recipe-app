@@ -1,0 +1,15 @@
+current directory: /home/faizii/Microverse/Module5/recipe-app/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.9.3/ext/bootsnap
+/home/faizii/.rbenv/versions/3.0.1/bin/ruby -I /home/faizii/.rbenv/versions/3.0.1/lib/ruby/3.0.0 -r ./siteconf20211224-9985-gu596l.rb extconf.rb
+creating Makefile
+
+current directory: /home/faizii/Microverse/Module5/recipe-app/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.9.3/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /home/faizii/Microverse/Module5/recipe-app/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.9.3/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.so
+
+current directory: /home/faizii/Microverse/Module5/recipe-app/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.9.3/ext/bootsnap
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20211224-9985-vqupyk/bootsnap
