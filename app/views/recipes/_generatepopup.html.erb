@@ -1,7 +1,7 @@
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     Generate Shopping List
 </button>
-
+<% if @inventories.any? %>
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -21,3 +21,17 @@
     </div>
   </div>
 </div>
+<% else %>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="d-flex flex-column p-2">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <p class="fs-4">No inventories to show</p>
+      <br>
+      <%= link_to "Create inventory", inventories_path , class: "btn btn-primary"%>
+    </div>
+    </div>
+  </div>
+</div>
+<% end %>
