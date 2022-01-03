@@ -1,0 +1,82 @@
+<% if can? :read , @recipe %>
+<div class="recipe-detail">
+<h1><%= @recipe.name %></h1>
+<div>
+<div class="detals">
+  <div class="info">
+  <div class="time">
+    <p class="fs-4">Preparation time:  </p><span class="fs-4"><%=@recipe.preparationTime%></span>
+    </div>
+    <div class="time">
+    <p class="fs-4">Cooking time:  </p><span class="fs-4"><%=@recipe.cookingTime%></span>
+    </div>
+  </div>
+  <% if can? :update, @recipe%>
+    <div class="status">
+      <%= form_with url: update_path(@recipe), method: "put" do |form| %>
+        <div class="form-check form-switch">
+          <% if @recipe.public == false %>
+            <%= form.check_box :public, class:"form-check-input fs-4", id:"flexSwitchCheckDefault", onchange: "this.form.submit();"%>
+            <label class="form-check-label fs-4" for="flexSwitchCheckDefault">Public</label>
+          <% else %>
+            <%= form.check_box :public, class:"form-check-input fs-4", id:"flexSwitchCheckChecked", checked: true, onchange: "this.form.submit();" %>
+            <label class="form-check-label fs-4" for="flexSwitchCheckChecked">Public</label>
+          <%end%>
+        </div>
+      <%end%>
+    </div>
+  <%end%>
+  </div>
+  <div>
+  <div class="descr bg-light mb-3">
+    <p class="fs-5"><%=@recipe.description%></p>
+  </div>
+  </div>
+  <div class="actions">
+    <%= render 'generatepopup' %>
+    <% if can? :update, @recipe%>
+     <div class="add-ingredient">
+      <%= link_to 'Add igredient', new_recipe_recipe_food_path(@recipe), class: 'btn btn-outline-dark' %>
+    </div>
+    <%end%>
+  </div>
+  <hr>
+</div>
+
+
+<table class="table table-striped table-bordered">
+ <% if @recipe.recipe_foods.any? %>
+    <thead>
+        <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    <% @recipe.recipe_foods.each do |fd|%>
+    <tr>
+      <td><%= fd.food.name%></th>
+      <td><%= fd.quantity%></td>
+      <td><%= fd.quantity* fd.food.price %></td>
+      <td class="mb-3 col-sm-3">
+      <% if can? :destroy, @recipe %>
+  
+        <%=link_to "Delete", recipe_recipe_food_path(recipe_id: @recipe.id, id: fd.id), method: :delete, class:"btn btn-outline-dark"%>
+        <%=link_to "Modify", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id: fd.id), class:"btn btn-outline-dark"%>
+      <%end%>
+      </td>
+    </tr>
+  
+    </tbody>
+    <%end%>
+  <%end%>
+</table>
+
+
+</div>
+
+
+<%end%>

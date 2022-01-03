@@ -1,0 +1,20 @@
+<div class="recipes">
+
+<% @recipes.each do |recipe|%>
+<div class="recipe">
+  <div class="recipe-name">
+    <div>
+    <%= link_to "#{recipe.name}", recipe_path(recipe), class: "text-reset text-decoration-none fs-3 text-capitalize" %>
+    </div>
+    <div class="remove-recipe">
+    <% if can? :destroy, recipe%>
+      <%= link_to 'Remove', recipe_path(recipe), method: :delete, class: "badge bg-danger text-decoration-none" %>
+    <%end%>
+    </div>
+  </div>
+  <div class="description">
+    <p><%= recipe.description %></p>
+  </div>
+</div>
+<% end %>
+</div>
