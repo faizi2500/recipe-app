@@ -75,7 +75,7 @@ To start recipe app you need to first `signup`
 
 - GitHub: [@medaminedev66](https://github.com/medaminedev66)
 - Twitter: [@medaminesmahi](https://twitter.com/medaminesmahi)
-- LinkedIn: [Mohammed Amine Smahi ](https://www.linkedin.com/in/mohammed-amine-smahi-1b8615187/)
+- LinkedIn: [Mohammed Amine Smahi ](https://www.linkedin.com/in/md-amine-smahi/)
 
 👤 **Rida Arif**
 
